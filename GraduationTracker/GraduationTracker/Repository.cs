@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace GraduationTracker
 {
+    #region Old Version
+    /// <summary>
+    /// Removing Static methods and separate repository to Diploma, Requirement, Student
+    /// </summary>
+
+    
     public class Repository
     {
         public static Student GetStudent(int id)
@@ -130,6 +136,8 @@ namespace GraduationTracker
             };
         }
     }
+    
 
 
+    #endregion
 }
