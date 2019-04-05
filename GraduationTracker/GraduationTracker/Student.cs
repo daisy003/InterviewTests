@@ -11,5 +11,9 @@ namespace GraduationTracker
         public int Id { get; set; }
         public Course[] Courses { get; set; }
         public STANDING Standing { get; set; } = STANDING.None;
+
+        public double TotalAverage { get; set; }
+
+        public int CompletedCredits { get; set; }
     }
 }

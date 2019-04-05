@@ -43,11 +43,24 @@
     <Compile Include="Course.cs" />
     <Compile Include="Diploma.cs" />
     <Compile Include="GraduationTracker.cs" />
+    <Compile Include="Interface\IDiplomaRepository.cs" />
+    <Compile Include="Interface\IRequirementRepository.cs" />
+    <Compile Include="Interface\IStandingRule.cs" />
+    <Compile Include="Interface\IStudentRepository.cs" />
+    <Compile Include="Data\DiplomaRepository.cs" />
+    <Compile Include="Data\RequirementRepository.cs" />
+    <Compile Include="Data\StudentRepository.cs" />
+    <Compile Include="Interface\IStudentStandingService.cs" />
     <Compile Include="STANDING.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Requirement.cs" />
+    <Compile Include="StandingRuleLogic\AverageRule.cs" />
+    <Compile Include="StandingRuleLogic\MagnaCumLaudeRule.cs" />
+    <Compile Include="StandingRuleLogic\RemedialRule.cs" />
+    <Compile Include="StandingRuleLogic\SumaCumLaudeRule.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="StudentStandingService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

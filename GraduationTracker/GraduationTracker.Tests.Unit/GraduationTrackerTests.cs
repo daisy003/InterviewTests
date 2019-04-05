@@ -8,10 +8,17 @@ namespace GraduationTracker.Tests.Unit
     [TestClass]
     public class GraduationTrackerTests
     {
+        private GraduationTracker tracker;
+
+        [TestInitialize]
+        public void Init()
+        {
+             tracker = new GraduationTracker();
+        }
+
         [TestMethod]
         public void TestHasCredits()
         {
-            var tracker = new GraduationTracker();
 
             var diploma = new Diploma
             {
@@ -70,7 +77,8 @@ namespace GraduationTracker.Tests.Unit
 
             //tracker.HasGraduated()
         };
-            
+            //Assumption: The test want to determine if one of student will not graduate
+            //due to missing credits.
             var graduated = new List<Tuple<bool, STANDING>>();
 
             foreach(var student in students)
@@ -79,10 +87,26 @@ namespace GraduationTracker.Tests.Unit
             }
 
             
-            Assert.IsFalse(graduated.Any());
+            Assert.IsTrue(graduated.Any(x=>x.Item1 == false));
 
         }
 
+        [TestMethod]
+        public void Test_BothOrEither_NULL_Diploma_Student()
+        {
+           
+            //expected false, standing none
+            Tuple<bool, STANDING> expected = new Tuple<bool, STANDING>(false, STANDING.None);
+
+            //both null
+            Assert.AreEqual(expected, tracker.HasGraduated(null, null));
+
+            Assert.AreEqual(expected, tracker.HasGraduated(null, new Student()));
+
+            Assert.AreEqual(expected, tracker.HasGraduated(new Diploma(), null));
+        }
+
+  
 
     }
 }
