@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\GraduationTracker"
+    "\\GraduationTracker",
+    "\\GraduationTracker\\GraduationTracker.Tests.Unit"
   ],
   "SelectedNode": "\\GraduationTracker\\GraduationTracker.sln",
   "PreviewInSolutionExplorer": false
