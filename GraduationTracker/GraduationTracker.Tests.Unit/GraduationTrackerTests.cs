@@ -48,7 +48,7 @@ namespace GraduationTracker.Tests.Unit
                         new Course{Id = 1, Name = "Math", Mark=80 },
                         new Course{Id = 2, Name = "Science", Mark=80 },
                         new Course{Id = 3, Name = "Literature", Mark=80 },
-                        new Course{Id = 4, Name = "Physichal Education", Mark=80 }
+                        new Course{Id = 4, Name = "Physichal Education", Mark=75 }
                    }
                },
             new Student
