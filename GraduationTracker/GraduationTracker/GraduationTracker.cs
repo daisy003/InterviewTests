@@ -1,4 +1,21 @@
-﻿using System;
+﻿/**
+ * 
+ * 
+ * 
+ * 
+
+1. get all students that have passed Math with a passing grade of 50 or above.
+2. get all students that have failed Science
+3. get list of students grouped by student id + highest graded course
+
+ * 
+ * 
+ * 
+ * 
+ **/
+ 
+ 
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
