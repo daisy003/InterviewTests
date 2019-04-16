@@ -13,10 +13,11 @@ namespace GraduationTracker
     {
         private readonly List<IStandingRule> _standingRules;
         private readonly IRequirementRepository _requirementRepository;
+        private readonly IStudentRepository _studetnRepository;
 
         public StudentStandingService(): this(new RequirementRepository())
         { }
-        public StudentStandingService(IRequirementRepository requirementRepository)
+        public StudentStandingService(IRequirementRepository requirementRepository, IStudentRepository studentRepository)
         {
             _standingRules = new List<IStandingRule>()
             {
@@ -27,6 +28,7 @@ namespace GraduationTracker
             };
 
             _requirementRepository = requirementRepository;
+            _studetnRepository = studentRepository;
 
         }
         public Tuple<bool, STANDING> GetStudentStandingByAverage(double average)
@@ -95,6 +97,24 @@ namespace GraduationTracker
                 return false;
 
             return true;
+        }
+
+        public List<Student> GetPassedStudentByCourse(int courseId, int passingGrade = 50)
+        {
+            var students = _studetnRepository.GetAllStudents();
+
+            List<Student> passedStudents = new List<Student>();
+            for(int i=0; i < students.Length; i++)
+            {
+                var course = students[i].Courses.Where(x => x.Id == courseId).FirstOrDefault();
+
+                if(course.Mark >= passingGrade)
+                {
+                    passedStudents.Add(students[i]);
+                }
+            }
+
+            return passedStudents;
         }
     }
 }

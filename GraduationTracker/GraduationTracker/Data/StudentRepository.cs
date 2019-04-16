@@ -26,6 +26,11 @@ namespace GraduationTracker.Data
 
         }
 
+        public Student[] GetAllStudents()
+        {
+            return GetStudents();
+        }
+
         private static Student[] GetStudents()
         {
             return new[]

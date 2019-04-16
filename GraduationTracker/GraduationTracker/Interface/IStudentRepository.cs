@@ -8,6 +8,8 @@ namespace GraduationTracker.Interface
 {
     public interface IStudentRepository
     {
+        Student GetStudent(int id);
 
+        Student[] GetAllStudents();
     }
 }
