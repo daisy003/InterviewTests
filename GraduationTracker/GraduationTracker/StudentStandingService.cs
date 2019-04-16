@@ -15,7 +15,7 @@ namespace GraduationTracker
         private readonly IRequirementRepository _requirementRepository;
         private readonly IStudentRepository _studetnRepository;
 
-        public StudentStandingService(): this(new RequirementRepository())
+        public StudentStandingService(): this(new RequirementRepository(), new StudentRepository())
         { }
         public StudentStandingService(IRequirementRepository requirementRepository, IStudentRepository studentRepository)
         {
@@ -109,6 +109,24 @@ namespace GraduationTracker
                 var course = students[i].Courses.Where(x => x.Id == courseId).FirstOrDefault();
 
                 if(course.Mark >= passingGrade)
+                {
+                    passedStudents.Add(students[i]);
+                }
+            }
+
+            return passedStudents;
+        }
+
+        public List<Student> GetFailedStudentByCourse(int courseId, int passingGrade = 50)
+        {
+            var students = _studetnRepository.GetAllStudents();
+
+            List<Student> passedStudents = new List<Student>();
+            for (int i = 0; i < students.Length; i++)
+            {
+                var course = students[i].Courses.Where(x => x.Id == courseId).FirstOrDefault();
+
+                if (course.Mark < passingGrade)
                 {
                     passedStudents.Add(students[i]);
                 }
