@@ -134,5 +134,32 @@ namespace GraduationTracker
 
             return passedStudents;
         }
+
+
+        public List<Student> GetStudentHighestCourse()
+        {
+            var students = _studetnRepository.GetAllStudents();
+
+            List<Student> passedStudents = new List<Student>();
+            for (int i = 0; i < students.Length; i++)
+            {
+                var course = students[i].Courses.OrderByDescending(x => x.Mark).FirstOrDefault();
+
+                passedStudents.Add(new Student()
+                {
+                    Id = students[i].Id,
+                    Courses = new Course[] { new Course() {
+                        Id = course.Id,
+                        Mark = course.Mark,
+                        Name = course.Name
+                    }
+                    }
+                });
+            }
+
+            return passedStudents;
+        }
+
+
     }
 }
